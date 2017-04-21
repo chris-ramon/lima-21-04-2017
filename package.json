@@ -4,11 +4,11 @@
   "description": "Create a hello world alexa skill.",
   "main": "index.js",
   "scripts": {
-    "proxy": "bst proxy lambda FunFact",
+    "proxy": "bst proxy lambda FunFact --verbose",
     "getFact": "bst intend GetNewFactIntent"
   },
   "author": "jimmiebtlr@gmail.com",
-  "license": "MIT",
+  "license": "Apache",
   "dependencies": {
     "alexa-sdk": "^1.0.9",
     "bespoken-tools": "^0.9.35",
