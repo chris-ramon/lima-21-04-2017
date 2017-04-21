@@ -12,6 +12,7 @@
   "dependencies": {
     "alexa-sdk": "^1.0.9",
     "bespoken-tools": "^0.9.35",
+    "dotenv": "^4.0.0",
     "utu": "^0.2.1"
   }
 }

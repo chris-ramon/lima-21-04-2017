@@ -1,13 +1,13 @@
 var utuClient = require('utu').uTu;
-var utu = new utuClient('c6c953a9e4a04e56bb8273075267deb3');
+var utu = new utuClient(process.env.UTU_KEY);
 
 var constants = require('utu').constants;
 
 var sendIntent = function(intent, platformId, sessionId, botMsg) {
-  utu.intent({
+  utu.intent(intent, {
     platform: constants.ALEXA,
     platformId: platformId,
-    sessionId: "abc",
+    sessionId: sessionId,
     values: {
       botMessage: botMsg,
     }
@@ -22,6 +22,7 @@ exports.injectUtu = function(handlers) {
       this._emit = this.emit;
       this.emit = function() {
         sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
+        this._emit.apply(this, arguments);
       }
 
       try {
