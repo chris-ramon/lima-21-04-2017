@@ -1,8 +1,6 @@
 # Overview
 
-Build
-
-Features
+Simple fun facts skill for Alexa and Lambda.
 
 # Installation
 
