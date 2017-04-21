@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "proxy": "bst proxy lambda FunFact --verbose",
-    "getFact": "bst intend GetNewFactIntent"
+    "getFact": "bst intend GetNewFactIntent",
+    "deploy": "bst deploy lambda"
   },
   "author": "jimmiebtlr@gmail.com",
   "license": "Apache",

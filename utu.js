@@ -28,11 +28,12 @@ exports.injectUtu = function(handlers) {
       }
 
       try {
-        handlers[intent].apply(this, arguments)
         // temporary hack for demo purposes
         if (intent === 'GetNewFactIntent') {
           sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
         }
+
+        handlers[intent].apply(this, arguments)
       } catch(e) {
         console.log("Error handling intent: ", e);
       }
