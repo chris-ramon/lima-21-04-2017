@@ -18,16 +18,21 @@ exports.injectUtu = function(handlers) {
   var wrappedHandlers = {};
 
   Object.keys(handlers).forEach(function (intent) {
-    wrappedHandlers[intent] = function() {
+    wrappedHandlers[intent] = function(eventType) {
       this._emit = this.emit;
       this.emit = function() {
-        sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
+        if (eventType === ":tellWithCard" || eventType === ":tell") {
+          sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
+        }
         this._emit.apply(this, arguments);
       }
 
       try {
         handlers[intent].apply(this, arguments)
-        sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
+        // temporary hack for demo purposes
+        if (intent === 'GetNewFactIntent') {
+          sendIntent(intent, this.event.session.user.userId, this.event.session.sessionId, false);
+        }
       } catch(e) {
         console.log("Error handling intent: ", e);
       }

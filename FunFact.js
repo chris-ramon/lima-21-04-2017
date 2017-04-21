@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageStrings;
     // alexa.registerHandlers(injectUtu(handlers));
-    // alexa.registerHandlers(handlers);
+    alexa.registerHandlers(handlers);
     alexa.execute();
 };
 
