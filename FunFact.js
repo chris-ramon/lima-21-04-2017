@@ -2,13 +2,14 @@
 var Alexa = require('alexa-sdk');
 var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 var languageStrings = require('./languageStrings.js');
+var injectUtu = require('./utu.js').injectUtu;
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageStrings;
-    alexa.registerHandlers(handlers);
+    alexa.registerHandlers(injectUtu(handlers));
     alexa.execute();
 };
 
