@@ -19,7 +19,7 @@ Call an intent
 npm run getFact
 ```
 
-# More Resourcesa
+# More Resources
 
 [Presentation deck](https://docs.google.com/presentation/d/1dZ0NNS0mlzeAiyhWrGrG8Pzsy1RIf6oYEPAyBV3sydw/edit?usp=sharing)
 
